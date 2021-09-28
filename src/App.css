@@ -1,38 +1,608 @@
-.App {
-  text-align: center;
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    color: #1D1F22;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+
+#storeContainer{
+    display: flex;
+    flex-direction: column;
+    padding-left: 101px;
+    padding-right: 101px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#navigationBarContainer{
+    background: #FFFFFF;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    height: 80px;
+    
+}
+#navigationBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 101px;
+    padding-right: 101px;
+    width: 100%;
+    align-items: center;
+}
+#categoriesNavigation{
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+}
+#companyLogo:hover{
+    cursor: pointer;
+}
+#categoriesNavigation p{
+    font-weight: 600;
+    line-height: 120%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    user-select: none;
+    margin-right: 16px;
+    padding: 28px 16px 28px 16px;
+}
+#categoriesNavigation p:hover{
+    cursor: pointer;
+}
+#cartNavigation{
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+    justify-content: flex-end;
+}
+#cartNavigation:hover{
+    cursor: pointer;
+}
+#cartNavigation div{
+   display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+#numOfItemsContainer{
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background: #1D1F22;
+    position: absolute;
+    right: 0;
+    margin-right: 92px;
+    margin-bottom: 20px;
+}
+#numOfItems{
+    color: #FFFFFF;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    text-transform: uppercase;
+}
+#storeFilterTitle{
+    font-size: 42px;
+    line-height: 160%;
+    font-weight: normal;
+    margin-top: 160px;
+    margin-bottom: 103px;
+    text-transform: capitalize;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+
+
+#allItems{
+    display: grid;
+    grid-auto-flow: row;
+    width: 100%;
+    grid-template-columns: 386px 386px 386px;
+    grid-template-rows: auto;
+    grid-gap: 103px 40px;
+    justify-content: space-between;
+    justify-items: center;
+    margin-bottom: 200px;
+    
+    
+        
+}
+.itemContainer{
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    transition: all 0.3s ease-in;
+    width: 354px;
+    height: 412px;
+}
+.itemContainer:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
+    background: #FFFFFF;
+    
+}
+.itemPriceContainer{
+    display: flex;
+    flex-direction: row;
+}
+.itemImage{
+    width: 356px;
+    height: 338px;
+    object-fit: cover;
+    margin-bottom: 24px;
+}
+.itemName{
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 160%;
+    font-size: normal;
+    display: inline;
+}
+.cartButton{
+    position: absolute;
+    height: 52px;
+    width: 52px;
+    border-radius: 100%;
+    background: #5ECE7B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0px 4px 11px rgba(29, 31, 34, 0.1));
+    transition: all 0.2 ease-in;
+    visibility: hidden;
+    margin-left: 290px;
+    margin-top: 310px;
+    z-index: 2;
+}
+.visibleIcon{
+    visibility: visible !important;
+}
+.cartButton img{
+    width: 24px;
+    height: 21px;
+}
+#productContainer{
+    display: flex;
+    flex-direction: row;
+    margin-top: 160px;
+}
+#galleryImagesContainer{
+    display: flex;
+    flex-direction: column;
+}
+.galleryImage{
+    width: 79px;
+    height: 80px;
+    margin: 10px;
+    margin-right: 15px;
+    object-fit: cover;
+}
+.galleryImage:hover{
+    cursor: pointer;
+}
+#productDevider{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+#imageContainer{
+    padding: 10px;
+    margin-left: 25px;
+}
+#imageContainer img{
+    width: 610px;
+    height: 511px;
+    object-fit: scale-down;
+}
+.choiceOptionContainer{
+    display: flex;
+    flex-direction: row;
+    margin-top: 8px;
+}
+.choiceOptionContainer button{
+    min-width: 63px;
+    height: 45px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    margin-right: 12px;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0.05em;
+    background: none;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.choiceOptionContainer button:hover{
+    cursor: pointer;
+}
+.chosenOption{
+    background: #1D1F22 !important;
+    color: #FFFFFF !important;
+}
+.chosenColorOption{
+    border: 3px solid red !important;
+}
+#productDescriptionContainer{
+    width: 100%;
+    margin-left: 100px;
+    display: flex;
+    flex-direction: column;
+
+}
+#addToCartProductButton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 32px;
+    background: #5ECE7B;
+    border: none;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    width: 292px;
+    height: 52px;
+}
+#addToCartProductButton:hover{
+    cursor: pointer;
+}
+#alreadyInCartButton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 32px;
+    background: #FFFFFF;
+    border: none;
+    color: #1D1F22;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    width: 292px;
+    height: 52px;
+    border: 1px solid #1D1F22;
+}
+#descriptionContainer body *{
+    font-family: 'Roboto', sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+
+
+
+
+
+#miniCartContainer{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background: rgba(57, 55, 72, 0.22);
+    left: 0;
+    top: 0;
+    position: fixed;
+}
+#miniCart{
+    width: 299px;
+    padding: 8px 16px 20px 16px;
+    background: #FFFFFF;
+    margin-left: auto;
+    margin-right: 101px;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+}
+#miniCartTitleContainer{
+    margin-bottom: 23px;
+}
+#miniCartTitleContainer *{
+    display: inline;
+}
+#miniCartTotalContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+#miniCartButtonsContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.miniCartButton{
+    width: 140px;
+    height: 43px;
+    text-transform:uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 120%;
+}
+.miniCartButton:hover{
+    cursor: pointer;
+}
+#miniCartItemsContainer{
+    max-height: 570px;
+    overflow-y: auto;
 }
 
-.App-link {
-  color: #61dafb;
+
+#miniItemContainer{
+    display: flex;
+    flex-direction: row;
+    min-width: 239px;
+    min-height: 137px;
+    margin-bottom: 41px;
+}
+.miniItemChoice{
+    min-width: 24px;
+    min-height: 24px;
+    text-align: center;
+    font-size: 14px;
+    background: #FFFFFF;
+    color: #1D1F22;
+    margin-right: 8px;
+    border: 1px solid #1D1F22;
+}
+.miniItemChoice:hover{
+    cursor: pointer;
+}
+#miniCartItemImageContainer{
+    height: 137px;
+    width: 105px;
+}
+#miniCartItemImageContainer img{
+        height: 137px;
+        width: 105px;
+        object-fit: cover;
+}
+#itemText{
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 160%;
+}
+#itemPriceText{
+    display: flex;
+    flex-direction: row;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 160%;
+}
+.removeItemIcon{
+    width: 20px !important;
+    height: 20px !important;
+    object-fit: cover;
+    position: absolute;
+    right: 0;
+    margin-right: 9.2%;
+}
+.removeItemIcon:hover{
+    cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+#bigItemContainer{
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid #E5E5E5;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#bigItemBrand{
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 27px;
+    padding-bottom: 16px;
+}
+#bigItemTitle{
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 27px;
+}
+#bigItemPriceText{
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 18px;
+    margin-top: 12px;
+}
+.bigItemChoice{
+    width: 63px;
+    height: 45px;
+    border: 1px solid #1D1F22;
+    text-align: center;
+    background: #FFFFFF;
+    color: #1D1F22;
+    margin-right: 12px;
+    margin-top: 10px;
+}
+.bigItemChoice:hover{
+    cursor: pointer;
+}
+#bigCartItemImageContainer img{
+    width: 141px;
+    height: 185px;
+    object-fit: cover;
+}
+.bigItemAmount{
+    width: 45px;
+    height: 45px;
+    border: 1px solid #1D1F22;
+    text-align: center;
+    background: #FFFFFF;
+    color: #1D1F22;
+    margin-right: 12px;
+    font-size: 24px;
+}
+.bigItemAmount:hover{
+    cursor: pointer;
+} 
+#arrowContainer{
+    position: absolute;
+    width: 141px;
+    height: 185px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#arrowLeft{
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(320deg) brightness(102%) contrast(101%);
+    width: 18px !important;
+    height: 18px !important;
+    transform: rotate(90deg);
+    padding-right: 5px;
+}
+#arrowRight{
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(320deg) brightness(102%) contrast(101%);
+    width: 18px !important;
+    height: 18px !important;
+    transform: rotate(-90deg);
+    padding-left: 5px;
+}
+#arrowRight:hover, #arrowLeft:hover{
+    cursor: pointer;
+}
+.bigRemoveItemIcon{
+    width: 20px !important;
+    height: 20px !important;
+    object-fit: cover;
+    position: absolute;
+    margin-right: 8%;
+    right: 0;
+    
+    
+}
+.bigRemoveItemIcon:hover{
+     cursor: pointer;
+}
+
+
+#currencyContainer{
+    width: 114px;
+    background: #FFFFFF;
+    filter: drop-shadow(0px 4px 35px rgba(168, 172, 176, 0.19));
+    position: absolute;
+    right: 0;
+    margin-top: 80px;
+    margin-right: 9%;
+    position: fixed;
+}
+.currencyChoiceContainer{
+    padding: 20px 0px 20px 20px;
+    display: flex;
+    flex-direction: row;
+}
+.currencyChoiceContainer:hover{
+    cursor: pointer;
+    background: #5ECE7B;
+    color: #FFFFFF;
+}
+
+
+#shoppingBagContainer{
+    margin-top: 160px;
+}
+#shoppingBagContainer h1{
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 40px;
+    text-transform: uppercase;
+    margin-bottom: 59px;
+}
+#shoppingBagToalContainer{
+   margin-top: 120px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#shoppingBagToalContainer p{
+    display: inline;
+    font-weight: bold;
+    font-size:  34px;
+    line-height: 18px;
+}
+#shoppingBagToalContainer span{
+    font-weight: bold;
+    font-size: 34px;
+    line-height: 160%;
+}
+
+
+
+
+#pagesButtonsContainer{
+    margin-top: 150px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.pagesButton{
+    width: 45px;
+    height: 45px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    margin-right: 12px;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0.05em;
+    background: none;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.pagesButtonActive{
+    color: #FFFFFF;
+    background: #5ECE7B;
+    border: none;
+}
+.pagesButton:hover{
+    cursor: pointer;
+}
+.pagesButtonActive:hover{
+    cursor: auto;
+}
+
+
+
+@media (min-width: 1500px){
+    #allItems{
+        justify-content: center;
+    }
+    #storeContainer{
+        width: 60%;
+    }
+    #navigationBar{
+        width: 60%;
+    }
+    #numOfItemsContainer{
+        margin-right: 19.6%;
+    }
+    #currencyContainer{
+        margin-right: 21%;
+    }
+    #miniCart{
+        margin-right: 20%;
+    }
+    .removeItemIcon{
+        margin-right: 20.8%;
+    }
 }
