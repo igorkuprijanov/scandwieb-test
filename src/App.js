@@ -47,6 +47,7 @@ class App extends React.Component {
     }
     
     render(){
+        console.log(localStorage)
     return (
     <div className="App">
       {this.state.ready ? <Store categories={this.state.test}/> : <p>not ready</p>}

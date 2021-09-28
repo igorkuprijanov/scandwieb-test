@@ -1,0 +1,32 @@
+#pagesButtonsContainer{
+    margin-top: 150px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.pagesButton{
+    width: 45px;
+    height: 45px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    margin-right: 12px;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0.05em;
+    background: none;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.pagesButtonActive{
+    color: #FFFFFF;
+    background: #5ECE7B;
+    border: none;
+}
+.pagesButton:hover{
+    cursor: pointer;
+}
+.pagesButtonActive:hover{
+    cursor: auto;
+}
+

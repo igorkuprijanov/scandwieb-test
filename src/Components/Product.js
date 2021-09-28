@@ -1,5 +1,6 @@
 import React from 'react'
 import Choice from './Choice.js'
+import '../Styles/Product.css'
 
 
 class Product extends React.Component{
@@ -24,6 +25,7 @@ class Product extends React.Component{
     }
     
     changeImage(e){
+        console.log(e.target.getAttribute('src'))
         this.setState({currentImage: e.target.getAttribute('src')})
     }
     
@@ -53,7 +55,7 @@ class Product extends React.Component{
         this.setState({isItemInCart: true})
     }
     
-    shouldComponentUpdate(nextProps){
+    shouldComponentUpdate(nextProps, nextState){
         if(nextProps !== this.props){
             this.setState({
                 isItemInCart: (()=>{for(let i=0, length = this.props.inCart.length; i<length; i++){
@@ -62,13 +64,16 @@ class Product extends React.Component{
                                     }}})(),
             })
             return true
+        }else if(this.state !== nextState){
+            return true
         }else{
             return false
         }
     }
 
     
-    render(){     
+    render(){ 
+        console.log(this.state)
         return(
         <div id='productContainer'>
         <div id='galleryImagesContainer'>
@@ -79,17 +84,17 @@ class Product extends React.Component{
                 <img alt='large product' src={this.state.currentImage}/>
             </div>
             <div id='productDescriptionContainer'>
-                <h1 style={{fontWight: '600', fontSize: '30px', lineHeight: '27px', color: '#1D1F22', marginBottom: '16px'}}>{this.props.item.brand}</h1>
-                <h2 style={{marginBottom: '43px', fontWeight: 'normal', fontSize: '30px', lineHeight: '27px'}}>{this.props.item.name}</h2>
+                <h1 className='productBrand'>{this.props.item.brand}</h1>
+                <h2 className='productName'>{this.props.item.name}</h2>
                 <div >
                     {this.props.item.attributes.map((attribute)=>{return <Choice options={this.state.options} setOptions={this.setOptions} key={attribute.id} attributes={attribute}/>})}
                 </div>
                 <div>
-                    <p style={{fontWeight: 'bold', fontSize: '18px', lineHeight: '18px', marginBottom: '10px', fontFamily: 'Roboto Condensed'}}>PRICE:</p>
-                    <p style={{fontWeight: 'bold', fontSize: '24px', lineHeight: '18px', marginBottom: '20px', height: '46px', display: 'flex', alignItems: 'center'}}>{this.props.currencySign} {this.props.item.prices.find(price => price.currency === this.props.currency).amount}</p>
+                    <p className='productPriceTitle'>PRICE:</p>
+                    <p className='productPrice'>{this.props.currencySign} {this.props.item.prices.find(price => price.currency === this.props.currency).amount}</p>
                 </div>
-                {this.state.isItemInCart ? <button style={{marginBottom: '40px'}} id='alreadyInCartButton'>ALREADY IN CART</button> : <button onClick={this.addToCart} style={{marginBottom: '40px'}} id='addToCartProductButton'>ADD TO CART</button>}
-                <div id='descriptionContainer' style={{fontFamily: 'Roboto'}}></div>
+                {this.state.isItemInCart ? <button id='alreadyInCartButton'>ALREADY IN CART</button> : <button onClick={this.addToCart} id='addToCartProductButton'>ADD TO CART</button>}
+                <div id='descriptionContainer'></div>
             </div>
         </div>
         </div>

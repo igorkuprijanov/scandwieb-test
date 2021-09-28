@@ -15,7 +15,7 @@ class Store extends React.Component{
             currentFilter: "all",
             currentItem: null,
             showCart: false,
-            inCart: [],
+            inCart: JSON.parse(localStorage.getItem('inCart')) || [],
             showCurrency: false,
             currency: 'USD',
             currencySign: '$',
@@ -57,7 +57,7 @@ class Store extends React.Component{
         let index
         this.state.inCart.find((product) => { return product[0].name === item[0].name ? index = this.state.inCart.indexOf(product) : console.log('no item')})
         items.splice(index, 1)
-        
+        localStorage.setItem('inCart', JSON.stringify(items))
         this.setState({
             inCart: items
         })
@@ -74,6 +74,7 @@ class Store extends React.Component{
     }
     
     addToCart(item, options, amount){
+        localStorage.setItem('inCart', JSON.stringify([...this.state.inCart, [item, options, amount]]))
         this.setState({inCart: [...this.state.inCart, [item, options, amount]]})
     }
     
@@ -139,6 +140,7 @@ class Store extends React.Component{
     
     
     render(){
+        console.log(this.state.inCart)
         return(
         <div id='storeContainer'>
             <Navbar currentFilter={this.state.currentFilter} inCart={this.state.inCart} currentCurrency={this.state.currencySign} arrowDirection={this.state.showCurrency} showCurrency={this.showCurrency} showMiniCart={this.showMiniCart} changeFilter={this.changeFilter} categories={this.props.categories}/>

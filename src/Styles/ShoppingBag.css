@@ -1,0 +1,28 @@
+#shoppingBagContainer{
+    margin-top: 160px;
+}
+#shoppingBagContainer h1{
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 40px;
+    text-transform: uppercase;
+    margin-bottom: 59px;
+}
+#shoppingBagToalContainer{
+   margin-top: 120px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#shoppingBagToalContainer p{
+    display: inline;
+    font-weight: bold;
+    font-size:  34px;
+    line-height: 18px;
+}
+#shoppingBagToalContainer span{
+    font-weight: bold;
+    font-size: 34px;
+    line-height: 160%;
+}

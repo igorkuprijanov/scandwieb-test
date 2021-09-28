@@ -1,5 +1,5 @@
 import React from 'react'
-import '../App.css'
+import '../Styles/Item.css'
 import shoppingCart from '../Assets/shoppingCartWhite.svg'
 
 class Item extends React.Component{
@@ -53,7 +53,7 @@ class Item extends React.Component{
             <p className='itemName'>{this.props.name}</p>
             </div>
             {this.state.showCartIcon ? <div className='cartButton'><img alt='shopping cart' src={shoppingCart}/></div> : null}
-            <div style={{fontWeight: '500', fontSize: '18px', lineHeight: '160%', textAlign: 'right'}} className='itemPriceContainer'>
+            <div className='itemPriceContainer'>
             <p >{this.props.currencySign}</p>
             <p >{this.props.prices.find(price => price.currency === this.props.currency).amount}</p>
             </div>

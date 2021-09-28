@@ -1,7 +1,8 @@
 import React from 'react'
-import '../App.css'
+import '../Styles/MiniItem.css'
 import arrow from '../Assets/arrow.svg'
 import remove from '../Assets/remove.svg'
+
 
 class MiniItem extends React.Component{
     
@@ -49,7 +50,7 @@ class MiniItem extends React.Component{
         let big = this.props.big
         return(
         <div id={big ? 'bigItemContainer' : 'miniItemContainer'}>
-            <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between', marginRight: 'auto'}}>
+            <div id='middleSectionContainer'>
                <div id={big ? null : 'itemText'}>
                     <p id={big ? 'bigItemBrand' : null}>{this.props.item[0].brand}</p>
                     <p id={big? 'bigItemTitle' : null}>{this.props.item[0].name}</p>
@@ -72,7 +73,7 @@ class MiniItem extends React.Component{
                         
                 </div>
             </div>
-            <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
+            <div id='amountContainer'>
                 <button className={big ? 'bigItemAmount' : 'miniItemChoice'} onClick={this.changeAmount}>+</button>
                 <span style={{textAlign: 'center'}}>{this.props.item[2]}</span>
                 <button className={big ? 'bigItemAmount' : 'miniItemChoice'} onClick={this.changeAmount}>-</button>

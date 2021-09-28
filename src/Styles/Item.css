@@ -1,0 +1,59 @@
+.itemContainer{
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    transition: all 0.3s ease-in;
+    width: 354px;
+    height: 412px;
+}
+.itemContainer:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
+    background: #FFFFFF;
+    
+}
+.itemPriceContainer{
+    display: flex;
+    flex-direction: row;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 160%;
+    text-align: right;
+}
+.itemImage{
+    width: 356px;
+    height: 338px;
+    object-fit: cover;
+    margin-bottom: 24px;
+}
+.itemName{
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 160%;
+    font-size: normal;
+    display: inline;
+}
+.cartButton{
+    position: absolute;
+    height: 52px;
+    width: 52px;
+    border-radius: 100%;
+    background: #5ECE7B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0px 4px 11px rgba(29, 31, 34, 0.1));
+    transition: all 0.2 ease-in;
+    visibility: hidden;
+    margin-left: 290px;
+    margin-top: 310px;
+    z-index: 2;
+}
+.visibleIcon{
+    visibility: visible !important;
+}
+.cartButton img{
+    width: 24px;
+    height: 21px;
+}

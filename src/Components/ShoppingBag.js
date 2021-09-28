@@ -1,6 +1,6 @@
 import React from 'react'
 import MiniItem from './MiniItem.js'
-import '../App.css'
+import '../Styles/ShoppingBag.css'
 
 class ShoppingBag extends React.Component{
     

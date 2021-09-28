@@ -1,4 +1,6 @@
 import React from 'react'
+import '../Styles/Pages.css'
+
 
 class Pages extends React.Component{
     

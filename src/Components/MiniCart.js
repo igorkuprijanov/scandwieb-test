@@ -1,5 +1,6 @@
 import React from 'react'
 import MiniItem from './MiniItem.js'
+import '../Styles/MiniCart.css'
 
 class MiniCart extends React.Component{
     
@@ -34,7 +35,7 @@ class MiniCart extends React.Component{
         <div id='miniCartContainer' onClick={this.closeCart}>
             <div id='miniCart'>
                 <div id='miniCartTitleContainer'>
-                    <p style={{fontWeight: '700', fontSize: '16px', lineHeight: '160%'}}>My bag, </p><span style={{fontWeight: '500', fontSize: '16px', lineHeight: '160%'}}>{this.props.items.length}</span><p style={{fontWeight: '500', fontSize: '16px', lineHeight: '160%'}}>{this.props.items.length === 1 ? ' item ' : ' items '}</p>
+                    <p className='miniCartTitleFat'>My bag, </p><span >{this.props.items.length}</span><p>{this.props.items.length === 1 ? ' item ' : ' items '}</p>
                 </div>
                 
                 <div id='miniCartItemsContainer'>
@@ -42,13 +43,13 @@ class MiniCart extends React.Component{
                 </div>
                 
                 <div id='miniCartTotalContainer'>
-                    <p style={{fontWeight: '500', fontSize: '16px', lineHeight: '18px'}}>Total</p>
-                    <span style={{fontWeight: 'bold', fontSize: '16px', lineHeight: '160%'}}>{this.props.currencySign} {Math.floor(value*100)/100}</span>
+                    <p className='miniCartTitle'>Total</p>
+                    <span className='miniCartTitleFat'>{this.props.currencySign} {Math.floor(value*100)/100}</span>
                 </div>
                 
                 <div id='miniCartButtonsContainer'>
-                    <button className='miniCartButton' style={{background: '#FFFFFF', border: '1px solid #1D1F22'}} onClick={this.openBag}>View bag</button>
-                    <button className='miniCartButton' style={{background: '#5ECE7B', color: '#FFFFFF', border: 'none'}} onClick={()=>{alert('not included')}}>check out</button>
+                    <button className='miniCartButton bagButton'onClick={this.openBag}>View bag</button>
+                    <button className='miniCartButton checkOut' onClick={()=>{alert('not included')}}>check out</button>
                 </div>
             </div>
         </div>
