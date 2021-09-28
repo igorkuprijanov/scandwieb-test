@@ -12,6 +12,8 @@ class Product extends React.Component{
             isItemInCart: (()=>{for(let i=0, length = this.props.inCart.length; i<length; i++){
                                     if(this.props.inCart[i][0] === this.props.item){
                                         return true 
+                                    }else{
+                                        return false
                                     }}})(),
             options: (() => {
                 let data = []
@@ -56,15 +58,19 @@ class Product extends React.Component{
     }
     
     shouldComponentUpdate(nextProps, nextState){
-        if(nextProps !== this.props){
+        if(this.state !== nextState){
+            console.log('new state')
+            return true
+        }else if(nextProps !== this.props){
+            console.log('new props')
             this.setState({
                 isItemInCart: (()=>{for(let i=0, length = this.props.inCart.length; i<length; i++){
                                     if(this.props.inCart[i][0] === this.props.item){
                                         return true 
+                                    }else{
+                                        return false
                                     }}})(),
             })
-            return true
-        }else if(this.state !== nextState){
             return true
         }else{
             return false
