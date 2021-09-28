@@ -1,70 +1,31 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
+# As usual:
 
 ### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To start the app at [http://localhost:3000](http://localhost:3000)
 
 ### `npm run build`
+To minfy and ready the app for production
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# A little expanation:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This is a hands-on test application for Scandiweb. It is built as per given design. Backend had also been provided. App is made with React.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### App includes:
 
-### `npm run eject`
++ Filter for items - each category filter itemn by their category namge, I also added 'all' category, that displays all items regardless of the category. (Shop logo also sets filter to 'all')
++ Change of currency - all that are in the API are included and changed dinamically. Currency can be changed at any page at any time.
++ Mini shopping cart - displays all items added to shoping cart, it is also possible to change attributes in the mini shopping cart. Also has a link to full shopping cart and checkout.
++ Product listing - section with all the items. It devides all items into 6 item arrays and shows 6 items per page.
++ Product page - here each item can be viewed in detail. Includes scrollable images, brand name, product name, changable attributes,  price, description and 'add to cart' button.
++ 'Add to cart' shortcut - In product listing page if a product is hovered on an icon appears to quickly add the product to cart with default attributes. If this item is already in cart, the icon does not show up.
++ Shopping bag page - a list of all products that were added to cart, all attributes can be changed, product amount can be changed, also can scroll through images of the product.
++ Remove item button - any item can be removed by pressing 'X' in the corner, either in mini-cart or in shopping bag page.
++ Total price - dinamically calculates total of all prices of items added to shopping cart.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Some core decisions:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
++ I decided to make only one API call in the beginning (even though it's cleary designed to have multiple calls to get specific data) and then do all the data manipulations on the front-end. This made the front-end heavier but also puts less pressure on back-end.
++ I wanted to make it a single page application, thats why I did not use a router. So that the page is loaded only once and then the page itself does all the data manipulations.  All sections are changable components on one main App component.
++ I made a pagination system in Product Listing Page, though it was not expected. PLP shows 6 items per page in a 3x2 grid. Since every product has an image, I thought it would be better to not load them all at the same time.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
